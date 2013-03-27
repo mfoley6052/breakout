@@ -16,12 +16,14 @@ Begin VB.Form Form1
       Left            =   360
       TabIndex        =   7
       Top             =   480
+      Visible         =   0   'False
       Width           =   1575
    End
    Begin VB.TextBox txtUpdates 
       Appearance      =   0  'Flat
       BackColor       =   &H80000007&
       BorderStyle     =   0  'None
+      Enabled         =   0   'False
       ForeColor       =   &H80000016&
       Height          =   285
       Index           =   0
@@ -37,13 +39,13 @@ Begin VB.Form Form1
       Left            =   360
       TabIndex        =   0
       Top             =   240
-      Visible         =   0   'False
       Width           =   1575
    End
    Begin VB.TextBox txtUpdates 
       Appearance      =   0  'Flat
       BackColor       =   &H80000007&
       BorderStyle     =   0  'None
+      Enabled         =   0   'False
       ForeColor       =   &H80000000&
       Height          =   285
       Index           =   1
@@ -57,6 +59,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       BackColor       =   &H80000007&
       BorderStyle     =   0  'None
+      Enabled         =   0   'False
       ForeColor       =   &H8000000C&
       Height          =   285
       Index           =   2
@@ -70,6 +73,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       BackColor       =   &H80000007&
       BorderStyle     =   0  'None
+      Enabled         =   0   'False
       ForeColor       =   &H8000000C&
       Height          =   285
       Index           =   3
@@ -83,6 +87,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       BackColor       =   &H80000007&
       BorderStyle     =   0  'None
+      Enabled         =   0   'False
       ForeColor       =   &H8000000C&
       Height          =   285
       Index           =   4
@@ -94,11 +99,11 @@ Begin VB.Form Form1
    End
    Begin VB.ListBox lstPrisoners 
       Height          =   4935
-      Left            =   2160
+      Left            =   5160
       TabIndex        =   1
       Top             =   360
       Visible         =   0   'False
-      Width           =   7575
+      Width           =   4575
    End
 End
 Attribute VB_Name = "Form1"
@@ -167,7 +172,8 @@ For z = 1 To numToCreate
             curLine = curLine + 1
         Loop
     Close #1
-    lstPrisoners.AddItem (prisoners(z).name & "    " & prisoners(z).trait(1) & "    " & prisoners(z).trait(2) & "    " & prisoners(z).trait(3))
+    Call eventOccur("New Prisoner arrived: " & prisoners(numPrisoners).name)
+    lstPrisoners.AddItem (prisoners(numPrisoners).name & "    " & prisoners(numPrisoners).trait(1) & "    " & prisoners(numPrisoners).trait(2) & "    " & prisoners(numPrisoners).trait(3))
 Next z
 End Function
 
@@ -176,25 +182,24 @@ Call eventOccur(InputBox("Enter the event message: ", "New Event"))
 End Sub
 
 Private Sub Command1_Click()
-Call newPrisoner(50)
+Call newPrisoner
 End Sub
 
 Private Sub Form_Load()
-Dim temp As Integer
+Static temp As Integer
 temp = 160
 For x = txtUpdates.LBound To txtUpdates.UBound
     txtUpdates(x).ForeColor = RGB(temp, temp, temp)
     temp = temp - 32
-    txtUpdates(x) = ""
+    txtUpdates(x).Text = ""
 Next x
-
 End Sub
 
 Private Function eventOccur(ByVal eventMsg As String) As Boolean
-Dim temp As String
 txtUpdates(4).Text = txtUpdates(3).Text
 txtUpdates(3).Text = txtUpdates(2).Text
 txtUpdates(2).Text = txtUpdates(1).Text
 txtUpdates(1).Text = txtUpdates(0).Text
 txtUpdates(0).Text = eventMsg
 End Function
+
