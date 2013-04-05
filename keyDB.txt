@@ -1,0 +1,13 @@
+yes,0
+not,1
+no,1
+can't,1
+feeling,2
+name,3
+how,4
+why,5
+when,6
+what,7
+who,8
+go,9
+lunch,10

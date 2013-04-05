@@ -1,4 +1,4 @@
-Attribute VB_Name = "modPrisonerCreate"
+Attribute VB_Name = "modPersonCreate"
 Public Function newPrisoner(Optional ByVal numToCreate As Integer) As Boolean
 Randomize Timer
 Dim rand As Integer

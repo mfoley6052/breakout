@@ -5,6 +5,10 @@ Public Type human
     name As String
     gender As String
 End Type
+Public Type command
+    Index
+    Text
+End Type
 Public intLines As Integer
 Public prisoners() As human
 Public numPrisoners As Integer
