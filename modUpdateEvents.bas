@@ -1,6 +1,6 @@
 Attribute VB_Name = "modUpdateEvents"
 Option Explicit
-
+Public x As Integer
 Public Function eventOccur(ByVal eventMsg As String) As Boolean
 With Form1
     .txtUpdates(4).Text = .txtUpdates(3).Text

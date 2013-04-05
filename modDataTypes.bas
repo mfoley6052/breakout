@@ -6,8 +6,8 @@ Public Type human
     gender As String
 End Type
 Public Type command
-    Index
-    Text
+    Index As Integer
+    Text As String
 End Type
 Public intLines As Integer
 Public prisoners() As human

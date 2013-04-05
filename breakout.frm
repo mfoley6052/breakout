@@ -154,7 +154,8 @@ Call eventOccur(InputBox("Enter the event message: ", "New Event"))
 End Sub
 
 Private Sub cmdSend_Click()
-
+Call keyWords(LCase(txtInput.Text))
+Call determineAction
 End Sub
 
 Private Sub Command1_Click()
@@ -168,7 +169,7 @@ End Sub
 Private Sub Form_Load()
 Static temp As Integer
 temp = 160
-For x = txtUpdates.LBound To txtUpdates.UBound
+For x = txtUpdates.LBound To txtUpdates.ubound
     txtUpdates(x).ForeColor = RGB(temp, temp, temp)
     temp = temp - 32
     txtUpdates(x).Text = ""
