@@ -20,6 +20,7 @@ Do Until EOF(1)
         End If
     Next x
 Loop
+Close #1
 End Function
 
 Public Function determineAction() As Boolean
