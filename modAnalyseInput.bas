@@ -15,7 +15,7 @@ Do Until EOF(1)
         If temp(0) = spaceDel(x) Then
             ReDim Preserve userCommands(numCommands) As command
             userCommands(numCommands).Text = temp(0)
-            userCommands(numCommands).Index = temp(1)
+            userCommands(numCommands).key = temp(1)
             numCommands = numCommands + 1
         End If
     Next x
@@ -28,7 +28,7 @@ Public Function determineAction() As Boolean
 
 'for testing
 For x = LBound(userCommands) To UBound(userCommands)
-    MsgBox (userCommands(x).Text)
+    MsgBox (userCommands(x).Text & " " & userCommands(x).key)
 Next x
 numCommands = 0
 End Function

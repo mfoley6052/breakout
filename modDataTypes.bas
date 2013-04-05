@@ -6,7 +6,7 @@ Public Type human
     gender As String
 End Type
 Public Type command
-    Index As Integer
+    key As Integer
     Text As String
 End Type
 Public intLines As Integer
