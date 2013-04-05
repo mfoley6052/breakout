@@ -13,7 +13,7 @@ Do Until EOF(1)
     temp = Split(strTemp, ",")
     For x = LBound(spaceDel) To UBound(spaceDel)
         If temp(0) = spaceDel(x) Then
-            ReDim userCommands(numCommands) As command
+            ReDim Preserve userCommands(numCommands) As command
             userCommands(numCommands).Text = temp(0)
             userCommands(numCommands).Index = temp(1)
             numCommands = numCommands + 1
